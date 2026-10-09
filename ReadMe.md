@@ -7,3 +7,7 @@ npm install -g nodemon (if not already installed)
 Check at : http://localhost:3000/ [By applying : nodemon app.js]
 Note : 'res.send' will display 'string' in (), & 'res.render' will display the 'page' in ()
 ==========================================================
+First view is added
+views/home.ejs
+along with the necessary changes in app.js
+==========================================================
