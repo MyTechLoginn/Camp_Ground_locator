@@ -11,3 +11,7 @@ First view is added
 views/home.ejs
 along with the necessary changes in app.js
 ==========================================================
+Add Campground Basic Model
+making : models/campground.js
+and the necessary changes in app.js, such as mongoes connection.
+==========================================================
