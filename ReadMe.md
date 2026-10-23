@@ -15,3 +15,8 @@ Add Campground Basic Model
 making : models/campground.js
 and the necessary changes in app.js, such as mongoes connection.
 ==========================================================
+Add first route after the Campground Basic Model
+i.e. app.get(/makecampground)... added in app.js
+check it at :http://localhost:3000/makecampground
+also verify in DB : yelp-camp> db.campgrounds.find()
+==========================================================

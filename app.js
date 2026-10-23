@@ -20,6 +20,15 @@ app.get("/", (req, res) => {
   res.render("home.ejs");
 });
 
+app.get("/makecampground", async (req, res) => {
+  const camp = new Campground({
+    title: "My BackYard",
+    description: "Cheap Camping ...!",
+  });
+  await camp.save();
+  res.send(camp);
+});
+
 app.listen(3000, () => {
   console.log("Serving on port 3000!");
 });
