@@ -33,3 +33,8 @@ Delete route : app.get('/makecampground,...) from app.js
 and Add: app.get('/campgrounds ...)
 Make : views/campgrounds/index.ejs
 ==========================================================
+Add Campground Show Route
+Make show route in app.js
+Add views/campgrounds/show.ejs
+Finally, using hyperlinks we are able to access the show page of any camp-ground listed, by using the same link of index route. i.e. : http://localhost:3000/campgrounds
+==========================================================
