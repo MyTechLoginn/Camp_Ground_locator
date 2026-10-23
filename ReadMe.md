@@ -20,3 +20,11 @@ i.e. app.get(/makecampground)... added in app.js
 check it at :http://localhost:3000/makecampground
 also verify in DB : yelp-camp> db.campgrounds.find()
 ==========================================================
+Seed the Campgrounds
+First making the following :
+i) seeds/cities.js
+ii)seeds/seedHelpers.js
+iii)seeds/index.js
+Then seeding using :node seeds/index.js
+and checking in DB : db.campgrounds.find()
+==========================================================
