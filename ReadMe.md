@@ -28,3 +28,8 @@ iii)seeds/index.js
 Then seeding using :node seeds/index.js
 and checking in DB : db.campgrounds.find()
 ==========================================================
+Add Campgrounds Index Route
+Delete route : app.get('/makecampground,...) from app.js
+and Add: app.get('/campgrounds ...)
+Make : views/campgrounds/index.ejs
+==========================================================

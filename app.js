@@ -20,13 +20,10 @@ app.get("/", (req, res) => {
   res.render("home.ejs");
 });
 
-app.get("/makecampground", async (req, res) => {
-  const camp = new Campground({
-    title: "My BackYard",
-    description: "Cheap Camping ...!",
-  });
-  await camp.save();
-  res.send(camp);
+// To Display the Index of Camp Grounds
+app.get("/campgrounds", async (req, res) => {
+  const campgrounds = await Campground.find({});
+  res.render("campgrounds/index", { campgrounds });
 });
 
 app.listen(3000, () => {
