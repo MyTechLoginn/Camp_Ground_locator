@@ -16,6 +16,8 @@ mongoose
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
   res.render("home.ejs");
 });
@@ -24,6 +26,18 @@ app.get("/", (req, res) => {
 app.get("/campgrounds", async (req, res) => {
   const campgrounds = await Campground.find({});
   res.render("campgrounds/index", { campgrounds });
+});
+
+// Add New Route
+app.get("/campgrounds/new", (req, res) => {
+  res.render("campgrounds/new");
+});
+
+// Add Create Route
+app.post("/campgrounds", async (req, res) => {
+  const campground = new Campground(req.body.campground);
+  await campground.save();
+  res.redirect(`/campgrounds/${campground._id}`);
 });
 
 // Route To Display Show

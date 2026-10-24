@@ -38,3 +38,7 @@ Make show route in app.js
 Add views/campgrounds/show.ejs
 Finally, using hyperlinks we are able to access the show page of any camp-ground listed, by using the same link of index route. i.e. : http://localhost:3000/campgrounds
 ==========================================================
+Add Two Routes : New and Create
+Make : views/campgrounds/new.ejs
+Add two routes "New" and "Create", also make the necessary changes in show.ejs
+==========================================================
