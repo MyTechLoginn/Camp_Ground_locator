@@ -47,3 +47,6 @@ Make two routes one for the edit form and second for submitting that form in app
 Make views/campgrounds/edit.ejs
 Run : npm i method-override (since,forms only send a GET and POST request from a browser)
 ==========================================================
+Complete CRUD operations with Delete Route
+Make necessary updates in app.js an campgrounds/show.ejs
+==========================================================
