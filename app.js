@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
+const methodOverride = require("method-override");
 const Campground = require("./models/campground");
 
 mongoose
@@ -15,6 +16,7 @@ mongoose
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+app.use(methodOverride("_method"));
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -44,6 +46,21 @@ app.post("/campgrounds", async (req, res) => {
 app.get("/campgrounds/:id", async (req, res) => {
   const campground = await Campground.findById(req.params.id);
   res.render("campgrounds/show", { campground });
+});
+
+// Route To create edit form
+app.get("/campgrounds/:id/edit", async (req, res) => {
+  const campground = await Campground.findById(req.params.id);
+  res.render("campgrounds/edit", { campground });
+});
+
+// Route to submit (Update) the Edit Form
+app.put("/campgrounds/:id", async (req, res) => {
+  const { id } = req.params;
+  const campground = await Campground.findByIdAndUpdate(id, {
+    ...req.body.campground,
+  });
+  res.redirect(`/campgrounds/${campground._id}`);
 });
 
 app.listen(3000, () => {

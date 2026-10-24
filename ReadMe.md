@@ -42,3 +42,8 @@ Add Two Routes : New and Create
 Make : views/campgrounds/new.ejs
 Add two routes "New" and "Create", also make the necessary changes in show.ejs
 ==========================================================
+Add Edit and Update Routes
+Make two routes one for the edit form and second for submitting that form in app.
+Make views/campgrounds/edit.ejs
+Run : npm i method-override (since,forms only send a GET and POST request from a browser)
+==========================================================
