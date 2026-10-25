@@ -50,3 +50,16 @@ Run : npm i method-override (since,forms only send a GET and POST request from a
 Complete CRUD operations with Delete Route
 Make necessary updates in app.js an campgrounds/show.ejs
 ==========================================================
+Add basic Styles
+Run npm i ejs-mate
+Make :
+i) views/layouts/boilerplate.ejs
+ii) footer,navbar in views/partials
+Make .env to use API for images and also us AI to complete the following tasks :
+i) npm install dotenv
+ii) PEXELS_API_KEY=XYZ
+iii) Create the Pexels Utility Helper (utils/pexels.js)
+iv) Update app.js
+v) Update seeds/index.js
+vi) Before running ; Re-seed your database : node seeds/index.js
+==========================================================

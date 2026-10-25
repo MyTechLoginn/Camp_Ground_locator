@@ -1,9 +1,15 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
+const ejsMate = require("ejs-mate");
 const methodOverride = require("method-override");
 const Campground = require("./models/campground");
+const { getRandomCampImage } = require("./utils/pexels");
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/yelp-camp")
@@ -14,10 +20,10 @@ mongoose
     console.error("MongoDB connection error:", err);
   });
 
+app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(methodOverride("_method"));
-
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
@@ -35,9 +41,11 @@ app.get("/campgrounds/new", (req, res) => {
   res.render("campgrounds/new");
 });
 
-// Add Create Route
+// Add Create Route (Integrated with Pexels API)
 app.post("/campgrounds", async (req, res) => {
   const campground = new Campground(req.body.campground);
+  // Fetch a random Pexels camping image for the new campground
+  campground.image = await getRandomCampImage();
   await campground.save();
   res.redirect(`/campgrounds/${campground._id}`);
 });
